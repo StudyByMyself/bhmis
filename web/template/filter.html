@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <select ng-model="devicePropertyName"
+            ng-options="property for property in deviceProperties"
+            ng-change="changeDeviceProperty()"
+            >
+    </select>
+    <div class="list-group">
+      <a href="#"
+         class="list-group-item"
+         ng-repeat="property in deviceDistinctProperties track by $index"
+         ng-class="{active: isActive(property)}"
+         ng-click="showDevicesList(property)"
+        >
+        {{property}}
+      </a>
+    </div>
+  </div>
+</div>

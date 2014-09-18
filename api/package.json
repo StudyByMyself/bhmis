@@ -1,0 +1,25 @@
+{
+  "name": "bhmi",
+  "description": "Get mobile information",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.11.1",
+    "node-uuid": "^1.4.1"
+  },
+  "main": "lib/app.js",
+  "scripts": {
+    "prepublish": "coffee -o ./ -c src/",
+    "prestart": "coffee -o ./ -c src/",
+    "pretest": "coffee -o ./ -c src",
+    "start": "node lib/app.js",
+    "test": "node lib/test.js"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "knex": "^0.6.22",
+    "log4slow": "^0.1.0",
+    "mysql": "^2.5.0",
+    "underscore": "^1.7.0"
+  }
+}

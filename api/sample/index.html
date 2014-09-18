@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/jquery.js"></script>
+</head>
+<body>
+<script>
+  var sendJsonp = function(url, data){
+    $.ajax({
+      type: "get",
+      async: false,
+      data: data,
+      url: url,
+      dataType: "jsonp",
+      jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+      success: function(json){
+        console.log(json)
+      },
+      error: function(){
+        alert('fail');
+      }
+    });
+  };
+  var doTestSave = function(){
+    var data = {
+      ua: "ua1",
+      browser: "browser2",
+      device: "device1",
+      devicePixelRatio: "devicePixelRatio1",
+      pixelDepth: "pixelDepth",
+      resolution: "pixelDepth"
+    };
+    sendJsonp("http://localhost:3000", data)
+  };
+  var doTestQuery = function(){
+    var query =  {browser: "browser2"};
+    sendJsonp("http://localhost:3000/device/get", query)
+  }
+</script>
+</body>
+</html>

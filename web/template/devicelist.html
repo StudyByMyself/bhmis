@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>UA</th>
+      <th>browser</th>
+      <th>device</th>
+      <th>devicePixelRatio</th>
+      <th>pixelDepth</th>
+      <th>resolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="device in deviceList">
+      <th>{{device.ua}}</th>
+      <th>{{device.browser}}</th>
+      <th>{{device.device}}</th>
+      <th>{{device.devicePixelRatio}}</th>
+      <th>{{device.pixelDepth}}</th>
+      <th>{{device.resolution}}</th>
+    </tr>
+  </tbody>
+</table>
