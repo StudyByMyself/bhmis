@@ -13,7 +13,7 @@
       "proxy": {
         "path": /^\/api/,
         "options": {
-          "target": "http://localhost:8000"
+          "target": "http://192.168.8.108:8989"
         }
       },
       "error": {
