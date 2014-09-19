@@ -49,6 +49,16 @@
       return this.knex.select('support').where(query).from(this.table);
     };
 
+    Events.prototype.findDeviceList = function() {
+      return this.knex.distinct('device').select().table(this.table);
+    };
+
+    Events.prototype.findBrowserListByDevice = function(device) {
+      return this.knex.distinct('browser').select().where({
+        device: device
+      }).table(this.table);
+    };
+
     return Events;
 
   })(_Base);

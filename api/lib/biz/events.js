@@ -49,6 +49,39 @@
       });
     };
 
+    Events.prototype.deviceList = function(req, resp) {
+      var callback, data, self;
+      self = this;
+      data = req.client.query;
+      callback = data.callback;
+      return _entity.findDeviceList().then(function(rows) {
+        var queue, row, _i, _len;
+        queue = [];
+        for (_i = 0, _len = rows.length; _i < _len; _i++) {
+          row = rows[_i];
+          queue.push(row.device);
+        }
+        return self.sendResult(resp, queue, callback);
+      });
+    };
+
+    Events.prototype.browserList = function(req, resp) {
+      var callback, data, device, self;
+      self = this;
+      data = req.client.query;
+      callback = data.callback;
+      device = data.device;
+      return _entity.findBrowserListByDevice(device).then(function(rows) {
+        var queue, row, _i, _len;
+        queue = [];
+        for (_i = 0, _len = rows.length; _i < _len; _i++) {
+          row = rows[_i];
+          queue.push(row.browser);
+        }
+        return self.sendResult(resp, queue, callback);
+      });
+    };
+
     return Events;
 
   })(_Base);

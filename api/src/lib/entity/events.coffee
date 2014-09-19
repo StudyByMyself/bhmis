@@ -33,4 +33,10 @@ class Events extends _Base
     @_valueCopy query, data
     @knex.select('support').where(query).from(@table)
 
+  findDeviceList: ()->
+    @knex.distinct('device').select().table(@table)
+
+  findBrowserListByDevice: (device)->
+    @knex.distinct('browser').select().where(device: device).table(@table)
+
 module.exports = new Events()

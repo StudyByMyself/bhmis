@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #content{
+      width: 980px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center">接口说明</h1>
+<div id="content">
+  <p>以下所有数据的提交方式均为get. 以下所有接口均支持jsonp获取</p>
+  <p>以下所有数据提交均有返回值。<code>{status: true}</code>或<code>{status: false}</code>表示提交成功或失败</p>
+  <h2>提交设备信息</h2>
+  <div>
+    <pre>
+      <code>
+        接口url: /device/add
+        提交数据 data:
+          {
+            ua: "ua1",
+            browser: "browser2",
+            device: "device1",
+            devicePixelRatio: "devicePixelRatio1",
+            pixelDepth: "pixelDepth",
+            resolution: "pixelDepth"
+          }
+      </code>
+    </pre>
+  </div>
+  <h2>提交设备事件支持</h2>
+  <div>
+    <pre>
+      <code>
+        接口url: /device/support
+        提交数据data:
+        {
+          device: 'ip5',
+          browser: 'safari',
+          support: 'touch'
+        }
+      </code>
+    </pre>
+  </div>
+  <h2>jquery jsonp提交 demo</h2>
+  <div>
+    <pre>
+      <code>
+        var sendJsonp = function(url, data){
+          $.ajax({
+            type: "get",
+            async: false,
+            data: data,
+            url: url,
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+              console.log(json)
+            },
+            error: function(){
+              alert('fail');
+            }
+          });
+        };
+        var doSaveDevice = function(){
+          var data = {
+            ua: "ua1",
+            browser: "browser2",
+            device: "device1",
+            devicePixelRatio: "devicePixelRatio1",
+            pixelDepth: "pixelDepth",
+            resolution: "pixelDepth"
+          };
+          sendJsonp("http://localhost:8000/device/add", data)
+        };
+        var doSaveSupportEvent = function(){
+          var data = {
+            device: 'ip5',
+            browser: 'safari',
+            support: 'touch'
+          };
+          sendJsonp("http://localhost:8000/device/support", data)
+        }
+        //doSaveDevice()
+        //doSaveSupportEvent()
+      </code>
+    </pre>
+  </div>
+</div>
+</body>
+</html>

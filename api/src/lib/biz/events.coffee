@@ -28,4 +28,25 @@ class Events extends  _Base
       self.sendResult resp, queue, callback
     )
 
+  deviceList: (req, resp)->
+    self = @
+    data = req.client.query
+    callback = data.callback
+    _entity.findDeviceList().then((rows)->
+      queue = []
+      queue.push row.device for row in rows
+      self.sendResult resp, queue, callback
+    )
+
+  browserList: (req, resp)->
+    self = @
+    data = req.client.query
+    callback = data.callback
+    device = data.device
+    _entity.findBrowserListByDevice(device).then((rows)->
+      queue = []
+      queue.push row.browser for row in rows
+      self.sendResult resp, queue, callback
+    )
+
 module.exports = new Events()

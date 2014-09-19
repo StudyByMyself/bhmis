@@ -30,7 +30,7 @@ class DeviceTest extends _Base
     query =
       device: "abc1"
       browser: "abc1"
- 
+
     _entity.findSupport(query).then((rows)->
       console.log rows
     )

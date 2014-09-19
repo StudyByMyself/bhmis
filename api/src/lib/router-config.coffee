@@ -1,4 +1,6 @@
 module.exports =
+  '/':
+    biz: "readme"
   '/device/add':
     biz: "device"
     method: "add"
@@ -17,5 +19,11 @@ module.exports =
   '/device/support/list':
     biz: "events"
     method: 'list'
+  '/device/support/device/list':
+    biz: "events"
+    method: 'deviceList'
+  '/device/support/device/browser/list':
+    biz: "events"
+    method: 'browserList'
   '/404':
     biz: "error"
