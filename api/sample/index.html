@@ -7,6 +7,7 @@
 </head>
 <body>
 <script>
+  var url = "http://192.168.8.108:8989/"
   var sendJsonp = function(url, data){
     $.ajax({
       type: "get",
@@ -32,15 +33,15 @@
       pixelDepth: "pixelDepth",
       resolution: "pixelDepth"
     };
-    sendJsonp("http://localhost:8000/device/add", data)
+    sendJsonp(url + "device/add", data)
   };
   var doTestQuery = function(){
     var query =  {browser: "browser2"};
-    sendJsonp("http://localhost:8000/device/get", query)
+    sendJsonp(url + "device/get", query)
   }
   var doGetSupport = function(){
     var query = {device: 'ip5', browser: 'safari'}
-    sendJsonp("http://localhost:8000/device/support/list", query)
+    sendJsonp(url + "device/support/list", query)
   }
   var doPostSupport = function(){
     var data = {
@@ -48,7 +49,7 @@
       browser: 'safari',
       support: 'touch'
     };
-    sendJsonp("http://localhost:8000/device/support", data)
+    sendJsonp(url +"device/support", data)
   }
 
 </script>

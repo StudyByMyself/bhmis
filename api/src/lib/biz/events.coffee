@@ -10,7 +10,6 @@ class Events extends  _Base
     data = req.client.query
     callback = data.callback
     self.clearData data
-    console.log data
     _entity.saveOnlyOne data, (error)->
       status = if error then false else true
       result =
