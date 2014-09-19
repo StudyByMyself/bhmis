@@ -24,5 +24,9 @@ class Base
     fields.push field for field of schema
     return fields
 
+  _valueCopy: (dest, ori)->
+    dest[key] = ori[key] for key, value of dest  when ori[key]?
+    return dest
+
 
 module.exports = Base

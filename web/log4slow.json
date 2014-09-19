@@ -1,0 +1,7 @@
+{
+  "log2console": true,
+  "timestamp": false,
+  "levelShow": true,
+  "lineInfo": false,
+  "log2file": false
+}

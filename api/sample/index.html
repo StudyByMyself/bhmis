@@ -38,6 +38,19 @@
     var query =  {browser: "browser2"};
     sendJsonp("http://localhost:3000/device/get", query)
   }
+  var doGetSupport = function(){
+    var query = {device: 'ip5', browser: 'safari'}
+    sendJsonp("http://localhost:8000/device/support/list", query)
+  }
+  var doPostSupport = function(){
+    var data = {
+      device: 'ip5',
+      browser: 'safari',
+      support: 'touch'
+    };
+    sendJsonp("http://localhost:8000/device/support", data)
+  }
+
 </script>
 </body>
 </html>

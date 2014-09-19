@@ -9,7 +9,6 @@
   Base = (function() {
     function Base(table) {
       this.table = table;
-      require('../init-schema').init();
     }
 
     Base.prototype.generateTestData = function() {
@@ -42,6 +41,25 @@
         length = 8;
       }
       return _uuid.unparse(_crypto.pseudoRandomBytes(length)).substr(0, length);
+    };
+
+    Base.prototype.generateRandomNumber = function(number) {
+      if (number == null) {
+        number = 1000;
+      }
+      return Math.ceil(Math.random() * number);
+    };
+
+    Base.prototype.generateLawData = function() {
+      var data, key, schema, value, _ref;
+      schema = require("../schema/" + this.table);
+      data = {};
+      _ref = schema.fields;
+      for (key in _ref) {
+        value = _ref[key];
+        data[key] = "abc" + (this.generateRandomNumber(5));
+      }
+      return data;
     };
 
     return Base;

@@ -1,7 +1,9 @@
 _DeviceTest = require './test/device-test'
-
+_EventsTest = require './test/event-test'
 doTest = ()->
-  tasks = _DeviceTest.tasks()
-  _DeviceTest[task]() for task in tasks
+  #require('./init-schema').init()
+  Test = _EventsTest
+  tasks = Test.tasks()
+  Test[task]() for task in tasks
 
 doTest()

@@ -43,6 +43,17 @@
       return fields;
     };
 
+    Base.prototype._valueCopy = function(dest, ori) {
+      var key, value;
+      for (key in dest) {
+        value = dest[key];
+        if (ori[key] != null) {
+          dest[key] = ori[key];
+        }
+      }
+      return dest;
+    };
+
     return Base;
 
   })();
