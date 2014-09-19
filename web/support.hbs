@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>BHMI</title>
+  {{import "package/*/*/*.css"}}
+</head>
+<body>
+<div class="container">
+  {{include "template/nav"}}
+  <div class="row" ng-controller="DeviceCtrl">
+    <div class="col-md-4">{{include "template/support/filter"}}</div>
+    <div class="col-md-8">{{include "template/support/event-list"}}</div>
+  </div>
+</div>
+{{import "js/*/jquery.js, js/*/angular.min.js"}}
+{{import "js/*.coffee"}}
+</body>
+</html>

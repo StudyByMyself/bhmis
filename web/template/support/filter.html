@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <select class="form-control"
+            ng-model="device"
+            ng-options="device for device in devices"
+            ng-change="changeDevice()">
+    </select>
+    <div class="list-group">
+      <a href="#"
+         class="list-group-item"
+         ng-repeat="browser in browserList track by $index"
+         ng-class="{active: isActive(browser)}"
+         ng-click="showSupportEvents(browser)"
+        >
+        {{browser}}
+      </a>
+    </div>
+  </div>
+</div>
