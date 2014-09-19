@@ -3,7 +3,10 @@ _fs = require 'fs'
 _path = require 'path'
 _async= require 'async'
 _knex = require('./db-connection').getConnection()
-_Log = require 'log4slow'
+#_Log = require 'log4slow'
+_Log =
+  info: (msg)->
+    console.log msg
 
 #扫描schema数据结构
 scanSchema = (dir = 'schema')->

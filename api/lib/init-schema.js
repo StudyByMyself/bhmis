@@ -10,7 +10,11 @@
 
   _knex = require('./db-connection').getConnection();
 
-  _Log = require('log4slow');
+  _Log = {
+    info: function(msg) {
+      return console.log(msg);
+    }
+  };
 
   scanSchema = function(dir) {
     var file, filePath, files, queue, _i, _len;
